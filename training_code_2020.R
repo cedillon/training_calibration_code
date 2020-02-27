@@ -121,8 +121,8 @@ spp_indicator_success_ct <- function(spp_report,
                            FUN = as.numeric))
   test[["ind_success_ct"]] <- rowSums(test)
   test[["indicator"]] <- "Absolute Difference of Number of Species Recorded Less than or Equal to 2 Records"
-  test <- test[,c(2:3)]
-  test[["crew_success_count"]] <- sum(as.vector(test[,"ind_success_ct"]))
+  test <- test[, c(2:3)]
+  test[["crew_success_count"]] <- sum(as.vector(test[, "ind_success_ct"]))
   title <- paste(spp_title, "Indicator Success Count",
                  sep = " ")
   #making the output
