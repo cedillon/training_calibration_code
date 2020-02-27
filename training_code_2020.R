@@ -349,8 +349,8 @@ lpi_indicator_status$indicator <- str_replace_all(lpi_indicator_status$indicator
                                                   "pct_",
                                                   "%")
 #Now let's make the figures :)
-lpi_abs_diff_fig <- ggplot(data = lpi_indicator_status, aes( x = indicator,
-                                         y = abs_diff))+
+lpi_abs_diff_fig <- ggplot2::ggplot(data = lpi_indicator_status, aes( x = indicator,
+                                                             y = abs_diff))+
   geom_rect(aes(xmin = -Inf, xmax = Inf, ymin = 10, ymax = Inf),
             fill = "gray88", alpha = 0.03) +
   geom_rect(aes(xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = 10),
@@ -381,7 +381,7 @@ print(lpi_abs_diff_fig)
 dev.off()
 
 
-gap_abs_diff_fig <- ggplot(data = gap_indicator_status, aes( x = indicator,
+gap_abs_diff_fig <- ggplot2::ggplot(data = gap_indicator_status, aes( x = indicator,
                                                              y = abs_diff))+
   geom_rect(aes(xmin = -Inf, xmax = Inf, ymin = 10, ymax = Inf),
             fill = "gray88", alpha = 0.05) +
@@ -414,7 +414,7 @@ print(gap_abs_diff_fig)
 dev.off()
 
 
-spp_abs_diff_fig <- ggplot(data = spp_indicator_status, aes( x = indicator,
+spp_abs_diff_fig <- ggplot2::ggplot(data = spp_indicator_status, aes( x = indicator,
                                                              y = abs_diff)) +
   geom_rect(aes(xmin = -Inf, xmax = Inf, ymin = 2, ymax = Inf),
             fill = "gray88", alpha = 0.2) +
@@ -446,7 +446,7 @@ print(spp_abs_diff_fig)
 dev.off()
 
 
-hgt_abs_diff_fig <- ggplot(data = hgt_indicator_status, aes( x = indicator,
+hgt_abs_diff_fig <- ggplot2::ggplot(data = hgt_indicator_status, aes( x = indicator,
                                                              y = abs_diff))+
   geom_rect(aes(xmin = -Inf, xmax = Inf, ymin = 2, ymax = Inf),
             fill = "gray88", alpha = 0.03) +
