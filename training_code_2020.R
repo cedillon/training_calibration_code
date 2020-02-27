@@ -141,11 +141,6 @@ spp_indicator_success_ct <- function(spp_report,
           axis.text.y = element_blank(),axis.ticks = element_blank()) +
     labs(title = title)
   #writes to designated folder
-  pdf(paste0(output_path,
-             "/species_ind_success",
-             ".pdf", sep = ""))
-  print(figure)
-  dev.off()
   if (!is.null(output_path)) {
     grDevices::pdf(paste0(output_path,
                           "/species_ind_success",
@@ -175,15 +170,6 @@ class_results <- function(method_results,
           axis.text.y = element_blank(),axis.ticks = element_blank(),
           axis.line = element_line(colour = "black")) +
     labs(title = paste(method_title,
-                       "Method Status of Entire Class", sep = ": "))
- #writing the output
-pdf(paste0(output_path,
-           "/",
-           method_title,
-             " 2",
-             ".pdf", sep = ""))
-  print(class_results)
-  dev.off()
   #writing the output
   if (!is.null(output_path)) {
   pdf(paste0(output_path,
