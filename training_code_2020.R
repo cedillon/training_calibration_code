@@ -7,18 +7,18 @@
 
 #---- I. Setting File Paths, Loading Data, Loading Packages ----
 #loading all required packages
-library(dplyr)
-library(tidyr)
-library(utils)
-library(grDevices)
-library(cowplot)
-library(data.table)
-library(DescTools)
-library(grDevices)
-library(ggplot2)
+# library(dplyr)
+# library(tidyr)
+# library(utils)
+# library(grDevices)
+# library(cowplot)
+# library(data.table)
+# library(DescTools)
+# library(grDevices)
+# library(ggplot2)
 `%>%` <- magrittr::`%>%`
-library(tibble)
-library(stringr)
+# library(tibble)
+# library(stringr)
 
 #Read in the LPI, Height, Canopy Gap, and Spp. Richness data (from the tempate.csv)
 #input path (to the CSV file data sheet, including the .csv name and file extension)
