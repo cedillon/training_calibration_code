@@ -15,7 +15,7 @@
 # library(data.table)
 # library(DescTools)
 # library(grDevices)
-# library(ggplot2)
+library(ggplot2)
 `%>%` <- magrittr::`%>%`
 # library(tibble)
 # library(stringr)
