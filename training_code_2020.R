@@ -97,12 +97,7 @@ indicator_success_ct <- function(method_report,
           axis.text.y = element_blank(),
           axis.ticks = element_blank()) +
     labs(title = title)
-  pdf(paste0(output_path,
-             "/",
-             method_title,
-             ".pdf", sep = ""), width = (length(test[,"indicator"])*2.5))
-  print(figure)
-  dev.off()
+  
   if (!is.null(output_path)) {
     grDevices::pdf(paste0(output_path,
                           "/",
