@@ -108,12 +108,8 @@ indicator_success_ct <- function(method_report,
   
   return(figure)
 }
+
 #species inv. gets its own function, because it's special
-spp_indicator_success_ct <- function(spp_report, spp_title){
-  require(grDevices)
-  require(ggplot2)
-  require(magrittr)
-  require(dplyr)
 spp_indicator_success_ct <- function(spp_report,
                                      spp_title,
                                      output_path = NULL){
