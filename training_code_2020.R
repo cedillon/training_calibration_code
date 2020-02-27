@@ -59,7 +59,9 @@ lpi_title <- "Line Point Intercept Calibration"
 spp_title <- "Species Calibration"
 hgt_title <- "Vegetation Height Calibration"
 
-indicator_success_ct <- function(method_report, method_title){
+indicator_success_ct <- function(method_report,
+                                 method_title,
+                                 output_path = NULL){
   test <- method_report
   test[test == "PASS"] <- as.numeric(1)
   test[test == "FAIL"] <- as.numeric(0)
@@ -89,6 +91,14 @@ indicator_success_ct <- function(method_report, method_title){
              ".pdf", sep = ""), width = (length(test[,"indicator"])*2.5))
   print(figure)
   dev.off()
+  if (!is.null(output_path)) {
+    grDevices::pdf(paste0(output_path,
+                          "/",
+                          method_title,
+                          ".pdf"),
+                   width = (length(test[, "indicator"]) * 2.5))
+  }
+  
   return(figure)
 }
 #species inv. gets its own function, because it's special
@@ -97,6 +107,9 @@ spp_indicator_success_ct <- function(spp_report, spp_title){
   require(ggplot2)
   require(magrittr)
   require(dplyr)
+spp_indicator_success_ct <- function(spp_report,
+                                     spp_title,
+                                     output_path = NULL){
   test <- spp_report
   test[test == "PASS"] <- as.numeric(1)
   test[test == "FAIL"] <- as.numeric(0)
@@ -130,11 +143,19 @@ spp_indicator_success_ct <- function(spp_report, spp_title){
              ".pdf", sep = ""))
   print(figure)
   dev.off()
+  if (!is.null(output_path)) {
+    grDevices::pdf(paste0(output_path,
+                          "/species_ind_success",
+                          ".pdf", sep = ""))
+  }
+  
   return(figure)
 
 }
 #class results
-class_results <- function(method_results, method_title){
+class_results <- function(method_results,
+                          method_title,
+                          output_path = NULL){
   require(DescTools)
   method_results <- DescTools::Freq(method_results[,"method_status"])
   class_results <- ggplot(data = method_results, aes( x = level, y = freq, fill = level)) + 
@@ -160,6 +181,15 @@ pdf(paste0(output_path,
              ".pdf", sep = ""))
   print(class_results)
   dev.off()
+  #writing the output
+  if (!is.null(output_path)) {
+  pdf(paste0(output_path,
+             "/",
+             method_title,
+             "_class",
+             ".pdf"))
+  }
+  
   return(class_results)
 }
 
