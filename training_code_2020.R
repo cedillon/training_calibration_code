@@ -165,20 +165,34 @@ class_results <- function(method_results,
                           output_path = NULL){
   require(DescTools)
   method_results <- DescTools::Freq(method_results[,"method_status"])
-  class_results <- ggplot(data = method_results, aes( x = level, y = freq, fill = level)) + 
-    geom_bar(stat = "identity", color = NA,
-             show.legend = FALSE)+
-    geom_text(aes(label = method_results$freq), size = 6,
-              position=position_dodge(width=0.9), vjust=-0.25)+
-    scale_fill_manual(values = c("gray64", "gray29" ))+
-    xlab("Method Calibration Status") + ylab("Number of Crews")+ 
+  
+  class_results <- ggplot2::ggplot(data = method_results,
+                          aes(x = level,
+                              y = freq,
+                              fill = level)) + 
+    geom_bar(stat = "identity",
+             color = NA,
+             show.legend = FALSE) +
+    geom_text(aes(label = method_results$freq),
+              size = 6,
+              position = position_dodge(width = 0.9),
+              vjust = -0.25) +
+    scale_fill_manual(values = c("gray64", "gray29")) +
+    xlab("Method Calibration Status") +
+    ylab("Number of Crews") + 
     theme(legend.background = element_rect(colour = 'black',
-                                           fill = 'white', size = 1, linetype='solid'))+
-    theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+                                           fill = 'white',
+                                           size = 1,
+                                           linetype = 'solid'),
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank(),
           panel.background = element_blank(),
-          axis.text.y = element_blank(),axis.ticks = element_blank(),
+          axis.text.y = element_blank(),
+          axis.ticks = element_blank(),
           axis.line = element_line(colour = "black")) +
     labs(title = paste(method_title,
+                       "Method Status of Entire Class",
+                       sep = ": "))
   #writing the output
   if (!is.null(output_path)) {
   pdf(paste0(output_path,
