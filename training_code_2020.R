@@ -238,9 +238,9 @@ lpi_report <- data.frame(lpi_indicator_status) %>%
 hgt_data <- data[,c(1,2,13:20)]
 
 hgt_indicator_status <- hgt_data %>%
-  gather(., indicator, value, woody_0_50_ct:herb_50_ct,na.rm = TRUE) %>%
-  group_by(., crew, indicator) %>%
-  summarise("abs_diff" = max(value) - min(value))
+  tidyr::gather(., indicator, value, woody_0_50_ct:herb_50_ct,na.rm = TRUE) %>%
+  dplyr::group_by(., crew, indicator) %>%
+  dplyr::summarise("abs_diff" = max(value) - min(value))
 
 #determining if the indicator was passed or failed according to 10 2 2
 hgt_indicator_status[["indicator_status"]] <- ifelse(hgt_indicator_status[,"abs_diff"] > 2,
@@ -257,9 +257,9 @@ gap_data <- data[,c(1,2,9:12)]
 
 #finding the absolute difference across indicators per crew
 gap_indicator_status <- gap_data %>%
-  gather(., indicator, value, gaps_25_50_pct:gaps_201_pct, na.rm = TRUE) %>%
-  group_by(., crew, indicator) %>%
-  summarise("abs_diff" = max(value) - min(value))
+  tidyr::gather(., indicator, value, gaps_25_50_pct:gaps_201_pct, na.rm = TRUE) %>%
+  dplyr::group_by(., crew, indicator) %>%
+  dplyr::summarise("abs_diff" = max(value) - min(value))
 
 #determining if the indicator was passed or failed according to 10 2 2
 gap_indicator_status[["indicator_status"]] <- ifelse(gap_indicator_status[,"abs_diff"] > 10,
@@ -274,9 +274,9 @@ gap_report <- gap_indicator_status %>%
 spp_data <- data[,c(1,2,21)]
 
 spp_indicator_status <- spp_data %>%
-  gather(., indicator, value, spp_ct, na.rm = TRUE) %>%
-  group_by(., crew, indicator) %>%
-  summarise("abs_diff" = max(value) - min(value))
+  tidyr::gather(., indicator, value, spp_ct, na.rm = TRUE) %>%
+  dplyr::group_by(., crew, indicator) %>%
+  dplyr::summarise("abs_diff" = max(value) - min(value))
 
 spp_indicator_status[["indicator_status"]] <- ifelse(spp_indicator_status[,"abs_diff"] > 2,
                                                      "FAIL", "PASS")
