@@ -230,9 +230,9 @@ lpi_indicator_status[["indicator_status"]] <- ifelse(lpi_indicator_status[,"abs_
 #This assumes set up is correct in the field, which is a big assumtion
 
 lpi_report <- data.frame(lpi_indicator_status) %>%
-  select(., crew, indicator,indicator_status) %>%
-  spread(., crew, indicator_status)%>%
-  column_to_rownames(., "indicator")
+  dplyr::select(., crew, indicator,indicator_status) %>%
+  tidyr::spread(., crew, indicator_status) %>%
+  tibble::column_to_rownames(., "indicator")
 
 #subsetting height data in the same style as previously demonstrated
 hgt_data <- data[,c(1,2,13:20)]
@@ -248,9 +248,9 @@ hgt_indicator_status[["indicator_status"]] <- ifelse(hgt_indicator_status[,"abs_
 
 #Another indicator per crew report for a potential output
 hgt_report <- hgt_indicator_status %>%
-  select(., crew, indicator,indicator_status) %>%
-  spread(., crew, indicator_status)%>%
-  column_to_rownames(., "indicator")
+  dplyr::select(., crew, indicator,indicator_status) %>%
+  tidyr::spread(., crew, indicator_status)%>%
+  tibble::column_to_rownames(., "indicator")
 
 #subsetting for gap data
 gap_data <- data[,c(1,2,9:12)]
@@ -266,9 +266,9 @@ gap_indicator_status[["indicator_status"]] <- ifelse(gap_indicator_status[,"abs_
                                                      "FAIL", "PASS")
 
 gap_report <- gap_indicator_status %>%
-  select(., crew, indicator,indicator_status) %>%
-  spread(., crew, indicator_status)%>%
-  column_to_rownames(., "indicator")
+  dplyr::select(., crew, indicator,indicator_status) %>%
+  tidyr::spread(., crew, indicator_status)%>%
+  tibble::column_to_rownames(., "indicator")
 
 #species inventory data
 spp_data <- data[,c(1,2,21)]
@@ -282,9 +282,9 @@ spp_indicator_status[["indicator_status"]] <- ifelse(spp_indicator_status[,"abs_
                                                      "FAIL", "PASS")
 
 spp_report <- spp_indicator_status %>%
-  select(., crew, indicator,indicator_status) %>%
-  spread(., crew, indicator_status)%>%
-  column_to_rownames(., "indicator")
+  dplyr::select(., crew, indicator,indicator_status) %>%
+  tidyr::spread(., crew, indicator_status)%>%
+  tibble::column_to_rownames(., "indicator")
 
 #---- IV. Analysis ----
 #finding total method success per crew per class
