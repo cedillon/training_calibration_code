@@ -126,22 +126,29 @@ spp_indicator_success_ct <- function(spp_report,
   title <- paste(spp_title, "Indicator Success Count",
                  sep = " ")
   #making the output
-  figure <- ggplot2::ggplot(data = test %>% dplyr::distinct()%>%
-                              subset(ind_success_ct > 0), aes(x = indicator,
-                                                              y = ind_success_ct))+
-    geom_bar(stat = "identity")+
-    geom_text(data = test %>% dplyr::distinct()%>%
-                subset(ind_success_ct > 0),
+  data <- test %>% dplyr::distinct() %>% subset(ind_success_ct > 0)
+  figure <- ggplot2::ggplot(data = data,
+                            aes(x = indicator,
+                                y = ind_success_ct)) +
+    geom_bar(stat = "identity") +
+    geom_text(data = data,
               aes(label = crew_success_count),
-              vjust = -0.25, size = 6)+
-    xlab("Indicator") + ylab("Number of Crews")+ 
+              vjust = -0.25,
+              size = 6) +
+    xlab("Indicator") +
+    ylab("Number of Crews") + 
     theme(legend.background = element_rect(colour = 'black',
-                                           fill = 'white', size = 1, linetype='solid'))+
-    theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+                                           fill = 'white',
+                                           size = 1,
+                                           linetype='solid'),
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank(),
           panel.background = element_blank(),
           axis.line = element_line(colour = "black"),
-          axis.text.y = element_blank(),axis.ticks = element_blank()) +
+          axis.text.y = element_blank(),
+          axis.ticks = element_blank()) +
     labs(title = title)
+  
   #writes to designated folder
   if (!is.null(output_path)) {
     grDevices::pdf(paste0(output_path,
