@@ -60,8 +60,6 @@ spp_title <- "Species Calibration"
 hgt_title <- "Vegetation Height Calibration"
 
 indicator_success_ct <- function(method_report, method_title){
-  require(grDevices)
-  require(ggplot2)
   test <- method_report
   test[test == "PASS"] <- as.numeric(1)
   test[test == "FAIL"] <- as.numeric(0)
