@@ -116,7 +116,9 @@ spp_indicator_success_ct <- function(spp_report,
   test <- spp_report
   test[test == "PASS"] <- as.numeric(1)
   test[test == "FAIL"] <- as.numeric(0)
-  test <- data.frame(apply(test,2,function(x) as.numeric(x)))
+  test <- data.frame(apply(test,
+                           MARGIN = 2,
+                           FUN = as.numeric))
   test[["ind_success_ct"]] <- rowSums(test)
   test[["indicator"]] <- "Absolute Difference of Number of Species Recorded Less than or Equal to 2 Records"
   test <- test[,c(2:3)]
