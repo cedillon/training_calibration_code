@@ -104,6 +104,8 @@ indicator_success_ct <- function(method_report,
                           method_title,
                           ".pdf"),
                    width = (length(test[, "indicator"]) * 2.5))
+    print(figure)
+    dev.off()
   }
   
   return(figure)
@@ -153,7 +155,9 @@ spp_indicator_success_ct <- function(spp_report,
   if (!is.null(output_path)) {
     grDevices::pdf(paste0(output_path,
                           "/species_ind_success",
-                          ".pdf", sep = ""))
+                          ".pdf"))
+    print(figure)
+    dev.off()
   }
   
   return(figure)
@@ -200,6 +204,8 @@ class_results <- function(method_results,
              method_title,
              "_class",
              ".pdf"))
+    print(figure)
+    dev.off()
   }
   
   return(class_results)
