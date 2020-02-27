@@ -41,7 +41,11 @@ data <- read.csv(input_path,
 # If yes, then return that the method on the whole passed. Otherwise it failed.
 method_success <- function(method_report){
   method_results <- data.frame("ind_pass_freq" = apply(method_report,
-                                                        2, function (x) sum (x == "PASS")))
+                                                       MARGIN = 2,
+                                                       FUN = function(x){
+                                                         sum(x == "PASS")
+                                                       })
+  )
   method_results[["method_status"]] <- ifelse(method_results[,"ind_pass_freq"] == nrow(method_report),
                                               "METHOD SUCCESS","METHOD FAIL")  
   return(method_results)
