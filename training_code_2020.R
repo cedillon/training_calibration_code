@@ -224,7 +224,7 @@ lpi_indicator_status <- lpi_data %>%
 
 #Determining if the indicator was passed or failed according to 10 2 2 rule
 lpi_indicator_status[["indicator_status"]] <- ifelse(lpi_indicator_status[,"abs_diff"] > 10,
-                                                         "FAIL", "PASS")
+                                                     "FAIL", "PASS")
 
 #Can share this with crews or display on slide to see where they failed
 #This assumes set up is correct in the field, which is a big assumtion
@@ -341,11 +341,11 @@ gap_indicator_status$indicator <- stringr::str_replace_all(gap_indicator_status$
                                                     "_" = " "))
 
 
-hgt_indicator_status$indicator <-  stringr::str_replace_all(hgt_indicator_status$indicator,
+hgt_indicator_status$indicator <- stringr::str_replace_all(hgt_indicator_status$indicator,
                                                    c("herb" = "Herb.",
-                                                    "woody" = "Woody",
-                                                    "ct" = "cm Record Count",
-                                                                  "_" = " "))
+                                                     "woody" = "Woody",
+                                                     "ct" = "cm Record Count",
+                                                     "_" = " "))
 
 spp_indicator_status$indicator <- stringr::str_replace(spp_indicator_status$indicator,
                                               "spp_ct",
@@ -409,8 +409,8 @@ gap_abs_diff_fig <- ggplot2::ggplot(data = gap_indicator_status, aes( x = indica
             fill = "gray100", alpha = 0.05,
             color = NA)  +
   geom_point(aes(shape = factor(gap_indicator_status$indicator_status)),
-              position = position_jitterdodge(jitter.width = 0.5, dodge.width = 0.2),
-              size = 8, show.legend = FALSE) + 
+             position = position_jitterdodge(jitter.width = 0.5, dodge.width = 0.2),
+             size = 8, show.legend = FALSE) + 
   scale_shape_manual(values = c(4,1))+
   
   theme(legend.background = element_rect(colour = 'black',
@@ -442,8 +442,8 @@ spp_abs_diff_fig <- ggplot2::ggplot(data = spp_indicator_status, aes( x = indica
             fill = "gray100", alpha = 0.2,
             color = NA)  +
   geom_point(aes(shape = factor(spp_indicator_status$indicator_status)),
-              position = position_jitterdodge(jitter.width = 0.5, dodge.width = 0.2),
-              size = 8, show.legend = FALSE) + 
+             position = position_jitterdodge(jitter.width = 0.5, dodge.width = 0.2),
+             size = 8, show.legend = FALSE) + 
   scale_shape_manual(values = c(4,1))+
   scale_color_manual(values = c("#000000"))+
   theme(legend.background = element_rect(colour = 'black',
@@ -474,9 +474,9 @@ hgt_abs_diff_fig <- ggplot2::ggplot(data = hgt_indicator_status, aes( x = indica
             fill = "gray100", alpha = 0.03,
             color = NA)  +
   geom_point(aes(shape = factor(hgt_indicator_status$indicator_status)),
-              position = position_jitterdodge(jitter.width = 0.5, dodge.width = 0.5),
-              size = 8,
-              show.legend = FALSE) + 
+             position = position_jitterdodge(jitter.width = 0.5, dodge.width = 0.5),
+             size = 8,
+             show.legend = FALSE) + 
   scale_shape_manual(values = c(4,1))+
   theme(legend.background = element_rect(colour = 'black',
                                          fill = 'white', size = 1, linetype='solid'))+
