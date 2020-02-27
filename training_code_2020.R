@@ -157,8 +157,8 @@ spp_indicator_success_ct <- function(spp_report,
   }
   
   return(figure)
-
 }
+
 #class results
 class_results <- function(method_results,
                           method_title,
