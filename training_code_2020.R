@@ -22,10 +22,10 @@ library(stringr)
 
 #Read in the LPI, Height, Canopy Gap, and Spp. Richness data (from the tempate.csv)
 #input path (to the CSV file data sheet, including the .csv name and file extension)
-input_path <- "C:/training_2020/crew_calibration_results_presentation/excel_datasheet_template/calibration_template_example.csv"
+input_path <- "calibration_template_example.csv"
 
 #output folder (this is the folder where the figures will be stored as images)
-output_path <- "C:/training_2020/crew_calibration_results_presentation/output_example"
+output_path <- ""
 
 #read in the data from the input path created in the previous step
 #blank values will be assigned NA values for missing data entries
