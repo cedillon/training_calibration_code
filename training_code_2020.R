@@ -355,27 +355,41 @@ lpi_indicator_status$indicator <- stringr::str_replace_all(lpi_indicator_status$
                                                   "pct_",
                                                   "%")
 #Now let's make the figures :)
-lpi_abs_diff_fig <- ggplot2::ggplot(data = lpi_indicator_status, aes( x = indicator,
-                                                             y = abs_diff))+
-  geom_rect(aes(xmin = -Inf, xmax = Inf, ymin = 10, ymax = Inf),
-            fill = "gray88", alpha = 0.03) +
-  geom_rect(aes(xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = 10),
-            fill = "gray100", alpha = 0.03,
+lpi_abs_diff_fig <- ggplot2::ggplot(data = lpi_indicator_status,
+                                    aes(x = indicator,
+                                        y = abs_diff)) +
+  geom_rect(aes(xmin = -Inf,
+                xmax = Inf,
+                ymin = 10,
+                ymax = Inf),
+            fill = "gray88",
+            alpha = 0.03) +
+  geom_rect(aes(xmin = -Inf,
+                xmax = Inf,
+                ymin = -Inf,
+                ymax = 10),
+            fill = "gray100",
+            alpha = 0.03,
             color = NA)  +
   geom_point(aes(shape = factor(lpi_indicator_status$indicator_status)),
-              position = position_jitterdodge(jitter.width = 0.5, dodge.width = 0.2),
-              size = 8, show.legend = FALSE) + 
-  scale_shape_manual(values = c(4,1))+
- 
+             position = position_jitterdodge(jitter.width = 0.5,
+                                             dodge.width = 0.2),
+             size = 8,
+             show.legend = FALSE) + 
+  scale_shape_manual(values = c(4,1)) +
   theme(legend.background = element_rect(colour = 'black',
-                                         fill = 'white', size = 1, linetype='solid'))+
-  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+                                         fill = 'white',
+                                         size = 1,
+                                         linetype='solid'),
+        panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank(),
-        axis.line = element_line(colour = "black"))+
-  geom_hline(yintercept = 10,size = 1.25,
+        axis.line = element_line(colour = "black")) +
+  geom_hline(yintercept = 10,
+             size = 1.25,
              linetype = "longdash",
              color = "blue") +
-xlab("Indicator") + ylab("Indicator Absolute Difference per Crew")+
+  xlab("Indicator") +
+  ylab("Indicator Absolute Difference per Crew")+
   labs(title = "LPI Indicator Absolute Difference Values by Crew")
 
 grDevices::pdf(paste0(output_path,
