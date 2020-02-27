@@ -65,12 +65,16 @@ indicator_success_ct <- function(method_report,
   test <- method_report
   test[test == "PASS"] <- as.numeric(1)
   test[test == "FAIL"] <- as.numeric(0)
-  test <- data.frame(apply(test,2,function(x) as.numeric(x)))
+  test <- data.frame(apply(test,
+                           MARGIN = 2,
+                           FUN = as.numeric))
   test$success_ct <- rowSums(test)
   test[["indicator"]] <- row.names(method_report)
+  
   #automating the title for the output
   title <- paste(method_title, "Indicator Success Count",
                  sep = " ")
+  
   #making the output
   figure <- ggplot2::ggplot(data = test, aes(x = indicator,
                                              y = success_ct))+
