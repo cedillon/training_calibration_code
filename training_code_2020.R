@@ -47,7 +47,8 @@ method_success <- function(method_report){
                                                        })
   )
   method_results[["method_status"]] <- ifelse(method_results[,"ind_pass_freq"] == nrow(method_report),
-                                              "METHOD SUCCESS","METHOD FAIL")  
+                                              "METHOD SUCCESS",
+                                              "METHOD FAIL")  
   return(method_results)
 }
 
