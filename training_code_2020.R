@@ -296,22 +296,22 @@ lpi_results <- method_success(lpi_report)
 
 
 #indicator success in a method
-row.names(lpi_report) <- str_replace_all(row.names(lpi_report),
+row.names(lpi_report) <- stringr::str_replace_all(row.names(lpi_report),
                                          "pct_",
                                          "%")
-row.names(gap_report) <- str_replace_all(row.names(gap_report),
-                                                  c("pct" = "cm (% Cover of Transect)",
-                                                    "gaps" = "Gap Size",
-                                                    "_" = " "))
+row.names(gap_report) <- stringr::str_replace_all(row.names(gap_report),
+                                         c("pct" = "cm (% Cover of Transect)",
+                                           "gaps" = "Gap Size",
+                                           "_" = " "))
 
-row.names(hgt_report) <-  str_replace_all(row.names(hgt_report),
-                                                   c("herb" = "Herb.",
-                                                     "woody" = "Woody",
-                                                     "ct" = "cm Record Count",
-                                                     "_" = " "))
-row.names(spp_report) <- str_replace(row.names(spp_report),
-                                              "spp_ct",
-                                              "Number of Spp. Recorded")
+row.names(hgt_report) <-  stringr::str_replace_all(row.names(hgt_report),
+                                          c("herb" = "Herb.",
+                                            "woody" = "Woody",
+                                            "ct" = "cm Record Count",
+                                            "_" = " "))
+row.names(spp_report) <- stringr::str_replace(row.names(spp_report),
+                                     "spp_ct",
+                                     "Number of Spp. Recorded")
 
 lpi_ind_success_fig <- indicator_success_ct(lpi_report, lpi_title)
 gap_ind_success_fig <- indicator_success_ct(gap_report, gap_title)
@@ -329,23 +329,23 @@ class_results(hgt_results,hgt_title)
 ##---- VI. More Figures to map Absolute Value per Method----
 #These figs. have to be done outside of the function
 #First, let's make the indicator strings understandable
-gap_indicator_status$indicator <- str_replace_all(gap_indicator_status$indicator,
+gap_indicator_status$indicator <- stringr::str_replace_all(gap_indicator_status$indicator,
                                                   c("pct" = "cm (% Cover of Transect)",
                                                     "gaps" = "Gap Size",
                                                     "_" = " "))
 
 
-hgt_indicator_status$indicator <-  str_replace_all(hgt_indicator_status$indicator,
+hgt_indicator_status$indicator <-  stringr::str_replace_all(hgt_indicator_status$indicator,
                                                    c("herb" = "Herb.",
                                                     "woody" = "Woody",
                                                     "ct" = "cm Record Count",
                                                                   "_" = " "))
 
-spp_indicator_status$indicator <- str_replace(spp_indicator_status$indicator,
+spp_indicator_status$indicator <- stringr::str_replace(spp_indicator_status$indicator,
                                               "spp_ct",
                                               "Number of Spp. Recorded")
 
-lpi_indicator_status$indicator <- str_replace_all(lpi_indicator_status$indicator,
+lpi_indicator_status$indicator <- stringr::str_replace_all(lpi_indicator_status$indicator,
                                                   "pct_",
                                                   "%")
 #Now let's make the figures :)
