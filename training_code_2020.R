@@ -31,7 +31,8 @@ output_path <- "C:/training_2020/crew_calibration_results_presentation/output_ex
 #blank values will be assigned NA values for missing data entries
 #when inputting data, you should be placing NA values anyway
 data <- read.csv(input_path,
-                 header = T, na.strings=c("","NA"))
+                 header = TRUE,
+                 na.strings = c("", "NA"))
 
 #---- II. Load Packages and Functions ----
 #load the function that will be used for analysis and visualization 
