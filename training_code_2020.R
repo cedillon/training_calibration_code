@@ -36,6 +36,9 @@ data <- read.csv(input_path,
 
 #---- II. Load Packages and Functions ----
 #load the function that will be used for analysis and visualization 
+
+# Check to see if every check for the method was passed
+# If yes, then return that the method on the whole passed. Otherwise it failed.
 method_success <- function(method_report){
   method_results <- data.frame("ind_pass_freq" = apply(method_report,
                                                         2, function (x) sum (x == "PASS")))
