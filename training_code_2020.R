@@ -76,18 +76,26 @@ indicator_success_ct <- function(method_report,
                  sep = " ")
   
   #making the output
-  figure <- ggplot2::ggplot(data = test, aes(x = indicator,
-                                             y = success_ct))+
-    geom_bar(stat = "identity")+
-    geom_text(aes(label = test$success_ct), size = 6,
-              position=position_dodge(width=0.9), vjust=-0.25)+
-    xlab("Indicator") + ylab("Number of Crews")+ 
+  figure <- ggplot2::ggplot(data = test,
+                            aes(x = indicator,
+                                y = success_ct)) +
+    geom_bar(stat = "identity") +
+    geom_text(aes(label = test$success_ct),
+              size = 6,
+              position = position_dodge(width = 0.9),
+              vjust = -0.25) +
+    xlab("Indicator") +
+    ylab("Number of Crews") + 
     theme(legend.background = element_rect(colour = 'black',
-                                           fill = 'white', size = 1, linetype='solid'))+
-    theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+                                           fill = 'white',
+                                           size = 1,
+                                           linetype = 'solid'),
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank(),
           panel.background = element_blank(),
           axis.line = element_line(colour = "black"),
-          axis.text.y = element_blank(),axis.ticks = element_blank()) +
+          axis.text.y = element_blank(),
+          axis.ticks = element_blank()) +
     labs(title = title)
   pdf(paste0(output_path,
              "/",
