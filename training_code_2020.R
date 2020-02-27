@@ -195,7 +195,7 @@ class_results <- function(method_results,
                        sep = ": "))
   #writing the output
   if (!is.null(output_path)) {
-  pdf(paste0(output_path,
+  grDevices::pdf(paste0(output_path,
              "/",
              method_title,
              "_class",
@@ -372,7 +372,7 @@ lpi_abs_diff_fig <- ggplot2::ggplot(data = lpi_indicator_status, aes( x = indica
 xlab("Indicator") + ylab("Indicator Absolute Difference per Crew")+
   labs(title = "LPI Indicator Absolute Difference Values by Crew")
 
-pdf(paste0(output_path,
+grDevices::pdf(paste0(output_path,
            "/",
            "lpi_abs_diff_fig",
            ".pdf", sep = ""), 
@@ -405,7 +405,7 @@ gap_abs_diff_fig <- ggplot2::ggplot(data = gap_indicator_status, aes( x = indica
   xlab("Indicator") + ylab("Indicator Absolute Difference per Crew")+
   labs(title = "Gap Indicator Absolute Difference Values by Crew")
 
-pdf(paste0(output_path,
+grDevices::pdf(paste0(output_path,
            "/",
            "gap_abs_diff_fig",
            ".pdf", sep = ""), 
@@ -438,7 +438,7 @@ spp_abs_diff_fig <- ggplot2::ggplot(data = spp_indicator_status, aes( x = indica
   xlab("Indicator") + ylab("Indicator Absolute Difference per Crew")+
   labs(title = "Species Count Absolute Difference Values by Crew")
 
-pdf(paste0(output_path,
+grDevices::pdf(paste0(output_path,
            "/",
            "spp_abs_diff_fig",
            ".pdf", sep = ""))
@@ -471,7 +471,7 @@ hgt_abs_diff_fig <- ggplot2::ggplot(data = hgt_indicator_status, aes( x = indica
   labs(title = "Vegetation Height Count Absolute Difference Values by Crew",
        shape = "Indicator Status per Crew") 
 
-pdf(paste0(output_path,
+grDevices::pdf(paste0(output_path,
            "/",
            "hgt_abs_diff_fig",
            ".pdf", sep = ""),
