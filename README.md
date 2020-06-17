@@ -3,10 +3,10 @@
 Calibration ensures the defensibility and integrity of data by providing evidence that the data are consistent and trustworthy. This R script evaluates the calibration exercise success of Vegetation height, Line-point Intercept, Canopy gap intercept, & Species inventory. 
 
 The script requires the following inputs:
-- X
-- Y
--X 
- In this format ![insert screenshot]
+1)A csv file with crew and member Core Method annd Species Richness summary information
+2)A file location for the csv file
+3)An output location for csv and 
+ In this format ![C:\training_2020\crew_calibration_results_presentation\code\input_screenshot.png]
  
 The script outputs include 3 csv files:
 - X, descriptions
