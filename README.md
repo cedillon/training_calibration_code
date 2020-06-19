@@ -10,9 +10,9 @@ The script requires the following inputs:
  
 The script outputs include 3 csv files:
 - qualitiative_report, descriptions
-![screenshot]
-- quantitative_report, description
 ![image](https://github.com/cedillon/training_calibration_code/blob/master/qualitative_report_example.PNG)
+- quantitative_report, description
+![image](https://github.com/cedillon/training_calibration_code/blob/master/quantitative_report_example.PNG)
 - calibration_status, description
 ![image](https://github.com/cedillon/training_calibration_code/blob/master/calibration_status_example.PNG)
 
