@@ -6,7 +6,7 @@ The script requires the following inputs:
 1)A csv file with crew and member Core Method annd Species Richness summary information
 2)A file location for the csv file
 3)An output location for csv and 
- In this format ![image](https://github.com/cedillon/training_calibration_code/blob/master/qualitative_report_example.PNG)
+ In this format ![image](https://github.com/cedillon/training_calibration_code/blob/master/input_screenshot.PNG)
  
 The script outputs include 3 csv files:
 - qualitiative_report, descriptions
