@@ -7,6 +7,7 @@ The script requires the following inputs:
 2)A file location for the csv file
 3)An output location for csv and 
  In this format ![image](https://github.com/cedillon/training_calibration_code/blob/master/input_screenshot.PNG)
+ <img src="https://github.com/cedillon/training_calibration_code/blob/master/input_screenshot.PNG" width="48">
  
 The script outputs include 3 csv files:
 - qualitiative_report, Includes variables as crews and calibration indicators with PASS,FAIL, & NA observations.
