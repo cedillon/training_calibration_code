@@ -3,9 +3,9 @@
 Calibration ensures the defensibility and integrity of data by providing evidence that the data are consistent and trustworthy. This R script evaluates the calibration exercise success of Vegetation Height, Line-point Intercept, Canopy Gap Intercept, & Species Inventory. 
 
 The script requires the following inputs:
-1)A csv file with crew and member Core Method annd Species Richness summary information
-2)A file location for the csv file on line 26. Example: input_path <- "C:/calibration_data/data/my_data.csv" 
-3)An output location for csv and figure outputs on line 29. Example: output_path <- "C:/calibration_data/outputs"
+1) A csv file with crew and member Core Method annd Species Richness summary information
+2) A file location for the csv file on line 26. Example: input_path <- "C:/calibration_data/data/my_data.csv" 
+3) An output location for csv and figure outputs on line 29. Example: output_path <- "C:/calibration_data/outputs"
 
 The script outputs include 3 csv files:
 - qualitiative_report, Includes variables as crews and calibration indicators with PASS,FAIL, & NA observations.
