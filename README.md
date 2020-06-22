@@ -11,7 +11,7 @@ The script requires the following inputs:
 
 The script outputs include 3 csv files:
 - qualitiative_report, Includes variables as crews and calibration indicators with PASS,FAIL, & NA observations.
-<img src="https://github.com/cedillon/training_calibration_code/blob/master/qualitative_report_example.PNG" alt=  width="500"/>
+<img src="https://github.com/cedillon/training_calibration_code/blob/master/qualitative_report_example.PNG" alt= "Qual." width="500"/>
 - quantitative_report, Includes variables as crews, indicator, absolute difference, indicator status with numeric and character observations.
 ![image](https://github.com/cedillon/training_calibration_code/blob/master/quantitative_report_example.PNG)
 - calibration_status, Includes variables as crews and observations as the number of indicators passed, failed, and the final status of the calibration status of the exercise.
