@@ -442,7 +442,7 @@ report_quant <- rbind(lpi_indicator_status,gap_indicator_status,
                       hgt_indicator_status, spp_indicator_status)
 #For calibration success across all methods
 final_calibration_status <- as.data.frame((apply(report_qual,2,table)))
-final_calibration_status["Final Status",]<- ifelse(final_calibration_status[1,] > 1,
+final_calibration_status["Final Status",]<- ifelse(final_calibration_status[1,] >= 1,
                                                    "Failed Calibration","Passes Calibration")
 write.csv(final_calibration_status,paste0(output_path,
                                           "/","calibration_status.csv"))
