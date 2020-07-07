@@ -436,16 +436,20 @@ print(hgt_abs_diff_fig)
 paste(hgt_abs_diff_fig)
 dev.off()
 
+#---- CSV ---- 
 #Final CSV for each crew's success record: 
 report_qual <- rbind(spp_report,gap_report,lpi_report,hgt_report)
 report_quant <- rbind(lpi_indicator_status,gap_indicator_status,
                       hgt_indicator_status, spp_indicator_status)
 #For calibration success across all methods
-final_calibration_status <- as.data.frame((apply(report_qual,2,table)))
-final_calibration_status["Final Status",]<- ifelse(final_calibration_status[1,] >= 1,
-                                                   "Failed Calibration","Passes Calibration")
-write.csv(final_calibration_status,paste0(output_path,
-                                          "/","calibration_status.csv"))
+
+final_calibration_status <- function(report_qual){
+  report_qual["Final Status",]<- ifelse(frequency(report_qual["FAIL",]) >= 1,
+                                        "Failed Calibration","Passes Calibration") 
+  return(report_qual)
+}
+
+report_qual <- final_calibration_status(report_qual = report_qual)
 write.csv(report_qual, paste0(output_path,
                               "/", "qualitative_report.csv"))
 write.csv(report_quant, paste0(output_path,
