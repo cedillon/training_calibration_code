@@ -20,7 +20,7 @@ The script outputs include 2 csv files and 12 figures:
   2) One histogram with the number of crews who passed each method versus failed
   3) One figure displaying the calibration absolute difference criteria per method indicator, e.g. 10%, and indicators as above (failed)
      or below (passed) that horizontal line
-<img src = "https://github.com/cedillon/training_calibration_code/blob/master/gap_figs_all.PNG" alt= "Quant." width="500"/> 
+![alt text](https://github.com/cedillon/training_calibration_code/blob/master/gap_figs_all.png)
   
   
 
