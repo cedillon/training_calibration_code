@@ -8,7 +8,8 @@ The script requires the following inputs:
 3) An output location for csv and figure outputs on line 29. Example: output_path <- "C:/calibration_data/outputs"
 
 The script outputs include 2 csv files:
-- qualitiative_report, Includes variables as crews and calibration indicators with PASS,FAIL, & NA observations.
+- qualitiative_report, Includes variables as crews and calibration indicators with PASS,FAIL, & NA observations. 
+- The final observation row includes the calibration exercise status with 'Failed Calibration' or 'Passes Calibration' entries.
 <img src="https://github.com/cedillon/training_calibration_code/blob/master/qualitative_report_example.PNG" alt= "Qual." width="500"/>
 
 - quantitative_report, Includes variables as crews, indicator, absolute difference, indicator status with numeric and character observations.
